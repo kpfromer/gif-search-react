@@ -5,8 +5,23 @@ import GifList from './Components/GifList';
 
 export default class App extends Component {
 
+  state = {
+    gifs: []
+  };
+
+  componentDidMount() {
+    fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+      .then(response => response.json())
+      .then(response =>
+        this.setState({ gifs: response.data })
+      )
+      .catch(error => {
+        console.log('Error fetching and parsing data');
+      });
+  }
 
   render() {
+    console.log(this.state.gifs);
     return (
       <div>
         <div className="main-header">
