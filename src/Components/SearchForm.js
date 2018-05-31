@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class SearchForm extends Component {
-  
+
+  static propTypes = {
+    onSearch: PropTypes.func.isRequired
+  };
+
   state = {
     searchText: ''
-  }
+  };
   
   onSearchChange = e => {
     this.setState({ searchText: e.target.value });
@@ -12,6 +17,8 @@ export default class SearchForm extends Component {
   
   handleSubmit = e => {
     e.preventDefault();
+    this.props.onSearch(this.state.searchText);
+    // Clears the whole form
     e.currentTarget.reset();
   };
   
