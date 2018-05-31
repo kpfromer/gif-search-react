@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Gif = props => (
   <li className="gif-wrap">
-    <img alt=""/>
+    <img src={props.url} alt="gif"/>
   </li>
 );
+
+Gif.propTypes = {
+  url: PropTypes.string.isRequired
+};
 
 export default Gif;

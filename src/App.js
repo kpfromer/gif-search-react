@@ -17,7 +17,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.gifs);
     return (
       <div>
         <div className="main-header">
@@ -27,7 +26,7 @@ export default class App extends Component {
           </div>   
         </div>    
         <div className="main-content">
-          <GifList />
+          <GifList data={this.state.gifs} />
         </div>
       </div>
     );
